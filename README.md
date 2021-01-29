@@ -26,7 +26,7 @@
 | Product description   | text                | null:false                               |
 | category_id           | integer             | null: false                              |
 | condition_id          | integer             | null: false                              |
-| Prefectures_id        | integer             | active hash                              |
+| Prefectures_id        | integer             | null: false                              |
 | days_id               | integer             | null: false                              |
 | price                 | integer             | null: false                              |
 | compounding_fee_id    | integer             | null: false                              |
