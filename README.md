@@ -16,7 +16,7 @@
 ### Association
 
 * has_many :items
-* has_many : purchases
+* has_one : purchases
 
 
 ## items table
@@ -26,17 +26,16 @@
 | Product description   | text                | null:false                               |
 | category_id           | integer             | null: false                              |
 | condition_id          | integer             | null: false                              |
+| Shipping charges      | integer             | null: false                              |
 | Prefectures_id        | integer             | null: false                              |
 | days_id               | integer             | null: false                              |
 | price                 | integer             | null: false                              |
-| compounding_fee_id    | integer             | null: false                              |
-| exhibition_id         | integer             | null: false                              |
 | user                  | references          | null: false, foreign_key: true           |
 
 ### Association
 
 - belongs_to :user
-- has_many : purchases
+- has_one : purchase
 
 
 ##  purchase table
@@ -57,11 +56,13 @@
 | Column             | Type       | Options           |
 |-------------       |------------|-------------------|
 | zip_code           | string     | null: false       |
-| prefectures        | string     | null: false       |
+| Prefectures_id     | integer    | null: false       |
 | municipality       | string     | null: false       |
 | street_number      | string     | null: false       |
 | building_name      | string     |                   |
 | telephone_number   | string     | null: false       |
+| user_id            | references | null: false, foreign_key: true |
+
 
 ### Association
 - belongs to : purchase
