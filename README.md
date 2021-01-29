@@ -5,7 +5,7 @@
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | nickname           | string              | null: false             |
-| email              | string              | null: false             |
+| email              | string              | null: false,unique: true|
 | encrypted_password | string              | null: false             |
 | last_name          | string              | null: false             |
 | first_name         | string              | null: false             |
@@ -16,17 +16,17 @@
 ### Association
 
 * has_many :items
-* has_one : purchases
+* has_one : purchase
 
 
 ## items table
 | Column                | Type                | Options                                  |
 |--------------------   |---------------------|-------------------------                 |
 | proprietary_name      | string              | null: false                              |
-| Product description   | text                | null:false                               |
+| product_description   | text                | null:false                               |
 | category_id           | integer             | null: false                              |
 | condition_id          | integer             | null: false                              |
-| Shipping charges      | integer             | null: false                              |
+| Shipping_charge       | integer             | null: false                              |
 | Prefectures_id        | integer             | null: false                              |
 | days_id               | integer             | null: false                              |
 | price                 | integer             | null: false                              |
