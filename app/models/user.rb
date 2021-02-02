@@ -15,4 +15,7 @@ validates :last_name_kana, presence: true
 validates :last_name_kana,format: { with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana  characters." }
 validates :first_name_kana, presence: true
 validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana  characters." }
+
+has_many :items
+has_many :purchases
 end
