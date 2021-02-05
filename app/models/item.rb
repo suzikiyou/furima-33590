@@ -1,15 +1,11 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
   has_one_attached :image
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :condition
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :shipp_ingcharge
-  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :shipping_charge
   belongs_to :prefecture
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :day
 
   with_options presence: true do
