@@ -8,11 +8,12 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :day
 
-  with_options presence: true do
+    validates :proprietary_name, presence: true
+    validates :product_description, presence: true
+    validates :price, presence: true
     validates :category_id, numericality: { other_than: 0 } 
     validates :condition_id, numericality: { other_than: 0 } 
     validates :shipping_charge_id, numericality: { other_than: 0 } 
     validates :prefectures_id, numericality: { other_than: 0 } 
     validates :days_id, numericality: { other_than: 0 } 
-  end
 end
