@@ -32,33 +32,33 @@ RSpec.describe Item, type: :model do
       end
 
       it 'category_idが0を選択している場合出品できない' do
-        @item.category_id = ''
+        @item.category_id = '0'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category is not a number")
+        expect(@item.errors.full_messages).to include("Category must be other than 0")
       end
 
       it 'condition_idが0を選択している場合登録できな出品できない' do
-        @item.condition_id = ''
+        @item.condition_id = '0'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition is not a number")
+        expect(@item.errors.full_messages).to include("Condition must be other than 0")
       end
 
       it 'shipping_charge_idが0を選択している場合出品できない' do
-        @item.shipping_charge_id = ''
+        @item.shipping_charge_id = '0'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping charge is not a number")
+        expect(@item.errors.full_messages).to include("Shipping charge must be other than 0")
       end
 
       it 'prefectures_idが0を選択している場合出品できない' do
-        @item.prefectures_id = ''
+        @item.prefectures_id = '0'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefectures is not a number")
+        expect(@item.errors.full_messages).to include("Prefectures must be other than 0")
       end
 
       it 'days_idが0を選択している場合出品できない' do
-        @item.days_id = ''
+        @item.days_id = '0'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Days is not a number")
+        expect(@item.errors.full_messages).to include("Days must be other than 0")
       end
 
       it 'priceが空だと出品できない' do
@@ -86,8 +86,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'priceが300円以上でないと出品できない' do
-        @item.price = '299'
-        binding.pry
+        @item.price = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is out of setting range")
       end
