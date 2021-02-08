@@ -4,7 +4,7 @@
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= "商品名" %>
+      <%= @item.proprietary_name %>
     </h2>
     <div class="item-img-content">
       <%= image_tag @item.image,class:"item-box-img" %>
@@ -19,7 +19,7 @@
         ¥ 999,999,999
       </span>
       <span class="item-postage">
-        <%= "配送料負担" %>
+        <%= @item.shipping_charge.name %>
       </span>
     </div>
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
@@ -42,27 +42,27 @@
     <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= "出品者名" %></td>
+          <th class="detail-item"></th>
+          <td class="detail-value"><%= @item.proprietary_name %></td>
         </tr>
         <tr>
-          <th class="detail-item">カテゴリー</th>
+          <th class="detail-item"></th>
           <td class="detail-value"><%= @item.category.name %></td>
         </tr>
         <tr>
-          <th class="detail-item">商品の状態</th>
+          <th class="detail-item"></th>
           <td class="detail-value"><%= @item.condition.name %></td>
         </tr>
         <tr>
-          <th class="detail-item">配送料の負担</th>
+          <th class="detail-item"></th>
           <td class="detail-value"><%= @item.shipping_charge.name %></td>
         </tr>
         <tr>
-          <th class="detail-item">発送元の地域</th>
+          <th class="detail-item"></th>
           <td class="detail-value"><%= @item.prefecture.name %></td>
         </tr>
         <tr>
-          <th class="detail-item">発送日の目安</th>
+          <th class="detail-item"></th>
           <td class="detail-value"><%= @item.day.name %></td>
         </tr>
       </tbody>
