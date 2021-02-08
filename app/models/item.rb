@@ -18,7 +18,7 @@ class Item < ApplicationRecord
     validates :category_id
     validates :condition_id
     validates :shipping_charge_id
-    validates :prefectures_id
-    validates :days_id
+    validates :prefecture_id
+    validates :day_id
   end
 end
