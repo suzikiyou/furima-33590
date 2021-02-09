@@ -7,7 +7,7 @@ app/assets/stylesheets/items/new.css %>
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model: @item, url: items_path, local: true do |f| %>
+    <%= form_with model: @item, local: true do |f| %>
    <%= render 'shared/error_messages', model: f.object %>
   
     <%# 出品画像 %>
@@ -75,7 +75,7 @@ app/assets/stylesheets/items/new.css %>
           発送元の地域
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select((:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
         <div class="weight-bold-text">
           発送までの日数
           <span class="indispensable">必須</span>
