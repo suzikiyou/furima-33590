@@ -29,7 +29,7 @@
 | shipping_charge_id    | integer             | null: false                              |
 | prefectures_id        | integer             | null: false                              |
 | days_id               | integer             | null: false                              |
-|                  | integer             | null: false                              |
+|                       | integer             | null: false                              |
 | user                  | references          | null: false, foreign_key: true           |
 
 ### Association
@@ -56,7 +56,7 @@
 | Column             | Type       | Options           |
 |-------------       |------------|-------------------|
 | zip_code           | string     | null: false       |
-| prefecture_id     | integer    | null: false       |
+| prefecture_id      | integer    | null: false       |
 | municipality       | string     | null: false       |
 | street_number      | string     | null: false       |
 | building_name      | string     |                   |
