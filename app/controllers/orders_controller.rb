@@ -7,18 +7,22 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     if @order.valid?
-      Payjp.api_key = sk_test_a745460ad515273c63f20c31
-      Payjp::Charge.create(
-        amount: order_params[:@item.price],  # 商品の値段
-        pay_item
-        card: order_params[:token],    # カードトークン
-        currency: 'jpy'                 # 通貨の種類（日本円）
-      )
+      
+      pay_item
+                    
       @order.save
       return redirect_to root_path
     else
       render :index
     end
+  end
+
+  def price #ゲッター
+    @price
+  end
+
+  def price #ゲッター
+    @price
   end
   
   private
