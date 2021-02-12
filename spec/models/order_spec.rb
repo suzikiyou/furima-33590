@@ -1,10 +1,10 @@
 require 'rails_helper'
 RSpec.describe Order, type: :model do
   before do
-    user = FactoryBot.create(:user)
-    item = FactoryBot.create(:item)
-    @order = FactoryBot.build(:order, user_id: user.id, item_id: item.id)
-    sleep(0.1)
+   item = FactoryBot.create(:item)
+   user = FactoryBot.create(:user)
+   @order = FactoryBot.build(:order, user_id: user.id, item_id: item.id)
+   sleep(0.1)
   end
 
  describe '商品購入' do
@@ -38,7 +38,13 @@ RSpec.describe Order, type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include("Street number can't be blank")
     end
-    
+
+    it 'building_nameが空だと購入できない' do
+      @order.building_name = ''
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Building name can't be blank")
+    end
+
     it 'telephone_numberが空だと購入できない' do
       @order.telephone_number = ''
       @order.valid?
@@ -55,6 +61,36 @@ RSpec.describe Order, type: :model do
       @order.telephone_number = '090-1234-56'
       @order.valid?
       expect(@order.errors.full_messages).to include("Telephone number is invalid. Telephone number (11 digits without hyphen). ")
+    end
+
+    it 'telephone_numberが12桁以上では購入できない' do
+      @order.telephone_number = '090-1234-5678'
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Telephone number is invalid. Telephone number (11 digits without hyphen). ")
+    end
+
+    it 'telephone_numberが英数混合では購入できない' do
+      @order.telephone_number = '090-12abcde'
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Telephone number is invalid. Telephone number (11 digits without hyphen). ")
+    end
+
+    it 'tokenが空だと購入できない' do
+      @order.token = ''
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Token can't be blank")
+    end
+
+    it 'item_idが空だと購入できない' do
+      @order.item_id = ''
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Item can't be blank")
+    end
+
+    it 'user_idが空だと購入できない' do
+      @order.user_id = ''
+      @order.valid?
+      expect(@order.errors.full_messages).to include("User can't be blank")
     end
   end
  end
