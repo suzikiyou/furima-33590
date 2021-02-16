@@ -6,7 +6,7 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
-  amazon:
+amazon:
   service: S3
   region: ap-northeast-1
   bucket: furima33590
